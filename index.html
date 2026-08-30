@@ -1,3 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Dr. Soumya Ranjan Biswal - Assistant Professor in AI &amp; Data Science, Ph.D. in Electrical Engineering. AI-driven IoT for energy management, smart grids and smart agriculture.">
+<meta name="author" content="Dr. Soumya Ranjan Biswal">
+<meta property="og:title" content="Dr. Soumya Ranjan Biswal">
+<meta property="og:description" content="Electrical Engineer | IoT &amp; AI Researcher - building intelligent, energy-efficient systems where power electronics meets machine learning.">
+<meta property="og:type" content="profile">
 <title>Dr. Soumya Ranjan Biswal</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -7,8 +17,8 @@
   --panel: #0C1B2B;
   --panel-2: #102436;
   --line: #1B3247;
-  --ink: #DCEAF4;
-  --muted: #7E99AE;
+  --ink: #E7F1F8;
+  --muted: #AFC7D9;
   --cyan: #2BC5E8;
   --cyan-dim: rgba(43,197,232,0.14);
   --amber: #F5B84C;
@@ -29,7 +39,7 @@ a { color: var(--cyan); }
 /* ===== NAV ===== */
 .nav {
   position: sticky; top: 0; z-index: 30;
-  background: rgba(6,13,22,0.9); backdrop-filter: blur(8px);
+  background: rgba(6,13,22,0.92); backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
 .nav .wrap { display: flex; align-items: center; gap: 14px; padding: 10px 22px; }
@@ -38,13 +48,13 @@ a { color: var(--cyan); }
   color: var(--cyan); text-shadow: 0 0 14px rgba(43,197,232,0.6);
   letter-spacing: 0.06em; flex: none;
 }
-.tabs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; margin-left: auto; }
+.tabs { display: flex; gap: 5px; overflow-x: auto; scrollbar-width: none; margin-left: auto; }
 .tabs::-webkit-scrollbar { display: none; }
 .tab {
   flex: none; cursor: pointer; appearance: none;
   font-family: "Chakra Petch", sans-serif; font-weight: 600; font-size: 13.5px;
   color: var(--muted); background: transparent;
-  border: 1px solid transparent; border-radius: 999px; padding: 7px 15px;
+  border: 1px solid transparent; border-radius: 999px; padding: 7px 14px;
   transition: color .15s, background .15s, border-color .15s, box-shadow .15s;
 }
 .tab:hover { color: var(--ink); border-color: var(--line); }
@@ -55,15 +65,38 @@ a { color: var(--cyan); }
 
 /* ===== PANELS ===== */
 main { position: relative; z-index: 1; }
-section.tabpanel { display: none; padding: 46px 0 70px; }
+section.tabpanel { display: none; padding: 46px 0 80px; }
 section.tabpanel.active { display: block; animation: panelin .3s ease; }
 @keyframes panelin { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-h2 { font-family: "Chakra Petch", sans-serif; font-weight: 700; font-size: 27px; margin: 0 0 6px; text-wrap: balance; }
-.sub2 { color: var(--muted); margin: 0 0 28px; max-width: 68ch; }
-h3 { font-family: "Chakra Petch", sans-serif; font-weight: 600; font-size: 18px; margin: 36px 0 14px; }
+h2 { font-family: "Chakra Petch", sans-serif; font-weight: 700; font-size: 28px; margin: 0 0 6px; text-wrap: balance; }
+.sub2 { color: var(--muted); margin: 0 0 6px; max-width: 68ch; }
 p { max-width: 70ch; }
 
-/* ===== HOME / HERO ===== */
+/* Section divider + coloured sub-heading */
+.shead {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin: 56px 0 20px; padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+.shead:first-child { margin-top: 34px; }
+.shead h3 {
+  font-family: "Chakra Petch", sans-serif; font-weight: 700; font-size: 21px;
+  color: var(--cyan); margin: 0; display: flex; align-items: center; gap: 12px;
+}
+.shead h3::before {
+  content: ""; width: 10px; height: 10px; flex: none;
+  background: var(--cyan); transform: rotate(45deg);
+  box-shadow: 0 0 12px rgba(43,197,232,0.9);
+}
+.shead .count {
+  font-family: "IBM Plex Mono", monospace; font-size: 11.5px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--amber);
+  border: 1px solid rgba(245,184,76,0.45); background: rgba(245,184,76,0.08);
+  border-radius: 999px; padding: 3px 11px;
+}
+.shead .hint { color: var(--muted); font-size: 13.5px; margin-left: auto; }
+
+/* ===== HOME ===== */
 .hero { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; padding: 26px 0 8px; }
 .avatar {
   flex: none; width: 168px; height: 168px; border-radius: 50%;
@@ -75,31 +108,6 @@ p { max-width: 70ch; }
 .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .avatar:hover { box-shadow: 0 0 54px rgba(43,197,232,0.75); transform: scale(1.04); }
 @keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -9px; } }
-.trace {
-  position: relative; height: 2px; max-width: 340px; border-radius: 2px;
-  background: linear-gradient(90deg, var(--cyan), rgba(43,197,232,0.06));
-  margin: 10px 0 24px;
-}
-.trace::after {
-  content: ""; position: absolute; top: -3px; left: 0; width: 8px; height: 8px;
-  border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan);
-  animation: slide 3s linear infinite;
-}
-@keyframes slide { from { left: 0; } to { left: calc(100% - 8px); } }
-.tabpanel.active .tnode { animation: rise .45s ease both; }
-.tabpanel.active .tnode:nth-child(1) { animation-delay: .04s; }
-.tabpanel.active .tnode:nth-child(2) { animation-delay: .1s; }
-.tabpanel.active .tnode:nth-child(3) { animation-delay: .16s; }
-.tabpanel.active .tnode:nth-child(4) { animation-delay: .22s; }
-.tabpanel.active .tnode:nth-child(5) { animation-delay: .28s; }
-.tabpanel.active .tnode:nth-child(6) { animation-delay: .34s; }
-.tabpanel.active .tnode:nth-child(7) { animation-delay: .4s; }
-.tabpanel.active .tnode:nth-child(8) { animation-delay: .46s; }
-.tabpanel.active .tnode:nth-child(9) { animation-delay: .52s; }
-.tabpanel.active .tnode:nth-child(10) { animation-delay: .58s; }
-@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
-.tilt { transform-style: preserve-3d; will-change: transform; }
-svg.gh { width: 100%; height: auto; margin: 2px 0 4px; display: block; }
 .hero .intro { flex: 1; min-width: 280px; }
 .kicker {
   font-family: "IBM Plex Mono", monospace; font-size: 12px;
@@ -125,22 +133,22 @@ h1 {
 .btn.ghost { background: var(--cyan-dim); color: var(--cyan); }
 .btn:hover { box-shadow: 0 0 20px rgba(43,197,232,0.5); transform: translateY(-2px); }
 
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 36px 0 8px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 34px 0 8px; }
 .stat {
   background: linear-gradient(180deg, var(--panel-2), var(--panel));
   border: 1px solid var(--line); border-left: 3px solid var(--cyan);
-  border-radius: 8px; padding: 14px 16px 12px;
+  border-radius: 8px; padding: 15px 17px 13px;
 }
 .stat .num {
-  font-family: "Chakra Petch", sans-serif; font-weight: 700; font-size: 30px;
+  font-family: "Chakra Petch", sans-serif; font-weight: 700; font-size: 31px;
   color: var(--cyan); line-height: 1; font-variant-numeric: tabular-nums;
 }
 .stat .lbl { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
 
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 8px; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
 @media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; } }
 .about-grid p { margin: 0 0 14px; max-width: none; }
-.focus-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.focus-chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip {
   font-family: "IBM Plex Mono", monospace; font-size: 12.5px;
   border: 1px solid rgba(43,197,232,0.45); color: var(--cyan); background: rgba(43,197,232,0.08);
@@ -196,7 +204,7 @@ h1 {
   .tcard { margin-left: 0; }
 }
 
-/* ===== RESEARCH ===== */
+/* ===== PROJECT CARDS ===== */
 .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
 .proj {
   background: linear-gradient(180deg, var(--panel-2), var(--panel));
@@ -217,19 +225,47 @@ h1 {
   margin: 10px 0 2px; font-variant-numeric: tabular-nums;
 }
 .proj .big small { font-size: 12px; color: var(--muted); font-family: "IBM Plex Mono", monospace; letter-spacing: 0.08em; display: block; }
-.pub {
-  border-left: 3px solid var(--cyan); background: var(--panel);
-  border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 0 0 10px; font-size: 14.5px;
+svg.gh { width: 100%; height: auto; margin: 2px 0 4px; display: block; }
+
+/* ===== PUBLICATION LIST ===== */
+.publist { counter-reset: pub; margin: 0; padding: 0; list-style: none; }
+.publist > li {
+  counter-increment: pub;
+  position: relative; padding: 14px 18px 14px 56px;
+  border-bottom: 1px solid var(--line);
+  transition: background .15s;
 }
-.pub b { display: block; margin-bottom: 2px; }
-.pub .where { color: var(--muted); font-size: 13px; }
-.pub .if { color: var(--amber); font-family: "IBM Plex Mono", monospace; font-size: 12px; margin-left: 6px; }
-.mini-badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 0; padding: 0; list-style: none; }
-.mini-badges li {
-  font-size: 13px; border: 1px solid var(--line); background: var(--panel);
-  border-radius: 8px; padding: 8px 13px;
+.publist > li:first-child { border-top: 1px solid var(--line); }
+.publist > li:hover { background: rgba(43,197,232,0.05); }
+.publist > li::before {
+  content: counter(pub, decimal-leading-zero);
+  position: absolute; left: 12px; top: 15px;
+  font-family: "IBM Plex Mono", monospace; font-size: 13px;
+  color: var(--cyan); opacity: 0.75;
 }
-.mini-badges li b { color: var(--amber); }
+.publist .t { display: block; font-weight: 600; margin-bottom: 3px; }
+.publist .a { display: block; color: var(--muted); font-size: 13.5px; }
+.publist .v { display: block; color: var(--muted); font-size: 13.5px; font-style: italic; }
+.publist .tagrow { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 7px; }
+.tg {
+  font-family: "IBM Plex Mono", monospace; font-size: 11.5px;
+  border-radius: 4px; padding: 2px 8px; border: 1px solid;
+}
+.tg-sci { color: var(--amber); border-color: rgba(245,184,76,0.5); background: rgba(245,184,76,0.08); }
+.tg-sco { color: var(--violet); border-color: rgba(167,139,250,0.5); background: rgba(167,139,250,0.08); }
+.tg-awd { color: var(--green); border-color: rgba(61,220,151,0.5); background: rgba(61,220,151,0.08); }
+.tg-first { color: var(--cyan); border-color: rgba(43,197,232,0.5); background: rgba(43,197,232,0.08); }
+
+/* ===== SIMPLE ITEM LISTS ===== */
+.items { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.items.two { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.items li {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 8px; padding: 12px 16px; font-size: 14.5px;
+}
+.items li b { color: var(--ink); }
+.items li .m { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
+.items li .ic { margin-right: 8px; }
 
 /* ===== SKILLS ===== */
 .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
@@ -244,7 +280,7 @@ h1 {
 .skill .focus-chips .chip { font-size: 12px; }
 
 /* ===== CONTACT ===== */
-.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 26px; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
 .ccard {
   background: linear-gradient(180deg, var(--panel-2), var(--panel));
   border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; text-align: center;
@@ -257,25 +293,42 @@ h1 {
 .note { color: var(--muted); font-size: 13.5px; }
 footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padding: 22px 0 40px; color: var(--muted); font-size: 13px; text-align: center; }
 
+.tilt { transform-style: preserve-3d; will-change: transform; }
+.tabpanel.active .tnode { animation: rise .45s ease both; }
+.tabpanel.active .tnode:nth-child(1) { animation-delay: .04s; }
+.tabpanel.active .tnode:nth-child(2) { animation-delay: .1s; }
+.tabpanel.active .tnode:nth-child(3) { animation-delay: .16s; }
+.tabpanel.active .tnode:nth-child(4) { animation-delay: .22s; }
+.tabpanel.active .tnode:nth-child(5) { animation-delay: .28s; }
+.tabpanel.active .tnode:nth-child(6) { animation-delay: .34s; }
+.tabpanel.active .tnode:nth-child(7) { animation-delay: .4s; }
+.tabpanel.active .tnode:nth-child(8) { animation-delay: .46s; }
+.tabpanel.active .tnode:nth-child(9) { animation-delay: .52s; }
+.tabpanel.active .tnode:nth-child(10) { animation-delay: .58s; }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .tab, .tcard, .proj, .skill, .btn, .chip, .avatar { transition: none; }
   section.tabpanel.active { animation: none; }
-  .caret, .avatar, .trace::after { animation: none; }
+  .caret, .avatar { animation: none; }
   .tabpanel.active .tnode { animation: none; }
 }
 </style>
-
+</head>
+<body>
 <canvas id="circuit" aria-hidden="true"></canvas>
 
 <nav class="nav" aria-label="Site">
   <div class="wrap">
-    <span class="brand">SRB<span style="color:#DCEAF4">.</span></span>
+    <span class="brand">SRB<span style="color:#E7F1F8">.</span></span>
     <div class="tabs" role="tablist">
       <button class="tab" role="tab" data-tab="home" aria-selected="true">Home</button>
       <button class="tab" role="tab" data-tab="journey" aria-selected="false">Journey</button>
       <button class="tab" role="tab" data-tab="research" aria-selected="false">Research</button>
+      <button class="tab" role="tab" data-tab="publications" aria-selected="false">Publications</button>
       <button class="tab" role="tab" data-tab="skills" aria-selected="false">Skills</button>
+      <button class="tab" role="tab" data-tab="recognition" aria-selected="false">Recognition</button>
       <button class="tab" role="tab" data-tab="contact" aria-selected="false">Contact</button>
     </div>
   </div>
@@ -302,13 +355,12 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padd
 
     <div class="stats">
       <div class="stat"><div class="num" data-count="12">0</div><div class="lbl">Scopus papers · 4 SCI</div></div>
-      <div class="stat"><div class="num" data-count="97">0</div><div class="lbl">Citations · h-index 5</div></div>
+      <div class="stat"><div class="num" data-count="97">0</div><div class="lbl">Citations · h-index 5 · i10 3</div></div>
       <div class="stat"><div class="num" data-count="3">0</div><div class="lbl">Published patents</div></div>
-      <div class="stat"><div class="num" data-count="9" data-suffix="+">0</div><div class="lbl">Years teaching</div></div>
-      <div class="stat"><div class="num" data-count="42.96" data-suffix="%" data-dec="2">0</div><div class="lbl">Energy cost reduced</div></div>
+      <div class="stat"><div class="num" data-count="4" data-suffix="+">0</div><div class="lbl">Years teaching</div></div>
     </div>
 
-    <h3>About me</h3>
+    <div class="shead"><h3>About me</h3></div>
     <div class="about-grid">
       <div>
         <p>I'm an engineer and educator working at the intersection of electrical power, the Internet of Things, and artificial intelligence. My journey started in electrical and electronics engineering, deepened through a master's in power electronics, and matured into a Ph.D. where I built machine-learning-driven demand-side management for smart greenhouses — funded research that cut energy costs by nearly 43% in a real PV-powered deployment.</p>
@@ -318,7 +370,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padd
       </div>
     </div>
 
-    <h3>Research focus</h3>
+    <div class="shead"><h3>Research focus</h3></div>
     <div class="focus-chips">
       <span class="chip">AI-driven IoT for energy management</span>
       <span class="chip">Predictive modelling &amp; load forecasting</span>
@@ -335,22 +387,21 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padd
 <section id="journey" class="tabpanel" role="tabpanel">
   <div class="wrap">
     <h2>The journey — 2014 → 2026</h2>
-    <div class="trace"></div>
     <p class="sub2">Twelve years from a B.Tech classroom in Odisha to AI-driven energy research and a professorship — year by year.</p>
-    <div class="legend">
+    <div class="legend" style="margin-top:22px">
       <span class="l-edu">Education</span><span class="l-car">Career</span><span class="l-res">Research</span><span class="l-awd">Award / Honor</span>
     </div>
 
     <div class="timeline">
       <div class="tnode"><div class="year">2014</div><div class="tcard">
         <h4>The spark: B.Tech in Electrical &amp; Electronics</h4>
-        <p class="sub">BPUT, Odisha — where the electrical journey begins</p>
-        <ul class="badges"><li class="b-edu">B.Tech EEE</li></ul>
+        <p class="sub">BPUT, Odisha · CGPA 7.2 — final-year project on a solar-wind hybrid system for rural electrification, which won two prizes at GIET</p>
+        <ul class="badges"><li class="b-edu">B.Tech EEE</li><li class="b-awd">2nd prize · Model presentation</li><li class="b-awd">3rd prize · World of Innovation</li></ul>
       </div></div>
       <div class="tnode"><div class="year">2015</div><div class="tcard">
         <h4>GATE qualified → M.Tech in Power Electronics &amp; Drives</h4>
         <p class="sub">IGIT Sarang · CGPA 8.2 · AICTE PG Scholarship · Teaching Assistant alongside</p>
-        <ul class="badges"><li class="b-awd">GATE 2015</li><li class="b-awd">AICTE Scholarship</li><li class="b-edu">M.Tech 2017</li><li class="b-car">First teaching role</li></ul>
+        <ul class="badges"><li class="b-awd">GATE 2015 · score 379</li><li class="b-awd">AICTE Scholarship</li><li class="b-edu">M.Tech 2017</li><li class="b-car">First teaching role</li></ul>
       </div></div>
       <div class="tnode"><div class="year">2017</div><div class="tcard">
         <h4>Into the classroom full-time</h4>
@@ -364,23 +415,23 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padd
       </div></div>
       <div class="tnode"><div class="year">2021</div><div class="tcard">
         <h4>First IEEE conference papers</h4>
-        <p class="sub">Smart-meter research at IEEE WIECON-ECE (Dhaka) and IEEE AESPC</p>
+        <p class="sub">Smart-meter research at IEEE WIECON-ECE (Dhaka) and IEEE AESPC (Bhubaneswar)</p>
         <ul class="badges"><li class="b-res">2 IEEE papers</li></ul>
       </div></div>
       <div class="tnode big"><div class="year">2022</div><div class="tcard">
         <h4>🏆 Best Paper Award — IEEE ICIDeA</h4>
         <p class="sub">"Optimal Battery Utilization Based on Weather Forecasting Data" + two more IEEE conference papers (ICIDeA, PESGRE)</p>
-        <ul class="badges"><li class="b-awd">Best Paper Award</li><li class="b-res">3 IEEE papers</li><li class="b-car">ICIDeA organizing committee</li></ul>
+        <ul class="badges"><li class="b-awd">Best Paper Award</li><li class="b-awd">Best Volunteer · ICIDeA</li><li class="b-res">3 IEEE papers</li><li class="b-car">ICIDeA organizing committee</li></ul>
       </div></div>
       <div class="tnode"><div class="year">2023</div><div class="tcard">
         <h4>Two patents published + a high-impact journal</h4>
-        <p class="sub">Solar power management &amp; bird-repelling patents · review in <em>Solar Energy</em> (IF 6.6) · IEEE STPEC organizing committee</p>
-        <ul class="badges"><li class="b-res">2 patents</li><li class="b-res">Solar Energy (IF 6.6)</li></ul>
+        <p class="sub">Solar power management &amp; bird-repelling patents · review in <em>Solar Energy</em> (IF 6.6) · IEEE STPEC organizing committee · talk on "Connected Farming in the 21st Century" at OUAT</p>
+        <ul class="badges"><li class="b-res">2 patents</li><li class="b-res">Solar Energy (IF 6.6)</li><li class="b-awd">Best Volunteer · STPEC</li></ul>
       </div></div>
       <div class="tnode"><div class="year">2024</div><div class="tcard">
         <h4>Third patent + upskilling in data science</h4>
-        <p class="sub">Priority-based solar power controller patent · NPTEL "Data Science for Engineers" (IIT Madras) · GIAN PV-Fuel Cell Microgrid course (NIT Rourkela)</p>
-        <ul class="badges"><li class="b-res">3rd patent</li><li class="b-edu">NPTEL · GIAN</li></ul>
+        <p class="sub">Priority-based solar power controller patent · NPTEL "Data Science for Engineers" (IIT Madras) · GIAN PV-Fuel Cell Microgrid course (NIT Rourkela) · three popular articles taking AI-IoT farming to the wider agricultural community</p>
+        <ul class="badges"><li class="b-res">3rd patent</li><li class="b-edu">NPTEL · GIAN</li><li class="b-car">Science outreach</li></ul>
       </div></div>
       <div class="tnode big"><div class="year">2025</div><div class="tcard">
         <h4>The breakthrough year: Dr. Biswal</h4>
@@ -389,8 +440,8 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padd
       </div></div>
       <div class="tnode"><div class="year">2026</div><div class="tcard">
         <h4>Widening the circle</h4>
-        <p class="sub">Executive M.Tech in AI &amp; DS begins (IIT Patna) · IEEE Access integrated review · digital-twin paper at IEEE NE-IECCE · invited speaker, AAMREET (NIT Rourkela) · G-20 Education Group workshop speaker</p>
-        <ul class="badges"><li class="b-edu">IIT Patna</li><li class="b-res">Digital twins</li><li class="b-awd">Invited talks</li></ul>
+        <p class="sub">Executive M.Tech in AI &amp; DS begins (IIT Patna) · IEEE Access integrated review · digital-twin paper at IEEE NE-IECCE · invited speaker, AAMREET (NIT Rourkela) · G-20 Education Group workshop speaker · industrial training in AI &amp; ML</p>
+        <ul class="badges"><li class="b-edu">IIT Patna</li><li class="b-res">Digital twins</li><li class="b-awd">Invited talks</li><li class="b-edu">AI/ML training</li></ul>
       </div></div>
     </div>
   </div>
@@ -400,9 +451,9 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padd
 <section id="research" class="tabpanel" role="tabpanel">
   <div class="wrap">
     <h2>Research &amp; projects</h2>
-    <div class="trace"></div>
-    <p class="sub2">AI-IoT systems for intelligent energy management — from funded field deployments to patents and IEEE publications.</p>
+    <p class="sub2">AI-IoT systems for intelligent energy management — funded field deployments, granted patents, and ongoing proposals.</p>
 
+    <div class="shead"><h3>Funded &amp; submitted projects</h3><span class="count">4 projects</span></div>
     <div class="proj-grid">
       <div class="proj">
         <svg class="gh" viewBox="0 0 220 110" aria-hidden="true">
@@ -425,7 +476,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padd
           <text x="131.5" y="79" fill="#2BC5E8" font-size="9" text-anchor="middle" font-family="monospace">AI</text>
           <path d="M131 87 v9 M124 87 v9 M138 87 v9" stroke="#2BC5E8" stroke-width="1" opacity="0.6"/>
         </svg>
-        <span class="status st-done">Funded · Completed</span>
+        <span class="status st-done">University funded · Completed</span>
         <h4>AI-IoT Smart Greenhouse Energy Management</h4>
         <p>Sensorless, ML-driven energy management for standalone PV-powered greenhouses. Centre of Excellence in Horticulture, Odisha.</p>
         <div class="big">−42.96%<small>ENERGY COST</small></div>
@@ -434,84 +485,288 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padd
       <div class="proj">
         <span class="status st-run">MSME 4.0 · Stage 3</span>
         <h4>Solar-Powered Robotic E-Waste Recycling</h4>
-        <p>AI-based, low-cost robotic system recovering reusable components from electronic waste. Govt. of India, MSME 4.0 scheme.</p>
+        <p>AI-based, low-cost robotic system recovering reusable components from electronic waste. Govt. of India, MSME 4.0 scheme, 2024.</p>
       </div>
       <div class="proj">
         <span class="status st-done">YUKTI · Recommended</span>
         <h4>IoT Smart Irrigation for Hydroponics</h4>
-        <p>Sensor-driven irrigation control for water-efficient hydroponic farming. YUKTI National Innovation Repository.</p>
+        <p>Sensor-driven irrigation control for water-efficient hydroponic farming. YUKTI National Innovation Repository, Innovation ID IR2022-821856.</p>
       </div>
       <div class="proj">
         <span class="status st-run">ICSSR · Under review</span>
         <h4>Grapevine Disease Forecasting</h4>
-        <p>Climate-responsive disease-risk forecasting for smallholder grape cultivation.</p>
+        <p>Climate-responsive disease forecasting and smart management for smallholder grapevine cultivation in India. Proposal ICSSR-RMM-2025-11504.</p>
       </div>
     </div>
 
-    <h3>Selected publications</h3>
-    <div class="pub"><b>Simplified Prediction-Based AI-IoT Model for Energy Management in a Standalone PV-Powered Greenhouse</b><span class="where">IEEE Journal of Emerging &amp; Selected Topics in Industrial Electronics, 2025<span class="if">SCI · IF 4.0</span></span></div>
-    <div class="pub"><b>An Improved IoT-Based Hybrid Predictive Load Forecasting Model for a Greenhouse with DSM</b><span class="where">IEEE Access, 2025<span class="if">SCI · IF 3.6</span></span></div>
-    <div class="pub"><b>AI-Enabled Energy Management for Sustainable Smart Greenhouses: An Integrated Review</b><span class="where">IEEE Access, 2026<span class="if">SCI · IF 3.6</span></span></div>
-    <div class="pub"><b>Review of Active Power Control Techniques — MPPT &amp; FPPT During High PV Penetration</b><span class="where">Solar Energy, 2023<span class="if">SCI · IF 6.6</span></span></div>
-    <div class="pub"><b>Enhanced Real-Time Electricity Consumption Forecasting Using a Hybrid Deep Learning Model</b><span class="where">Franklin Open, 2026<span class="if">Scopus Q2</span></span></div>
-    <p class="note">Plus 7 IEEE conference papers, 2 book chapters (Elsevier &amp; AkiNik), and 3 popular articles on AI-IoT in agriculture.</p>
-
-    <h3>Published patents</h3>
-    <ul class="mini-badges">
-      <li>🔆 Optimal Solar Power Management System for a Smart Greenhouse — <b>202331015513</b></li>
-      <li>🐦 Sustainable Bird-Repelling Device with Advanced Decision-Making — <b>202331015511</b></li>
-      <li>⚙️ Priority-Based Solar Power Management Controller — <b>202431087402</b></li>
+    <div class="shead"><h3>Published patents</h3><span class="count">3 patents</span></div>
+    <ul class="items">
+      <li><span class="ic">🔆</span><b>An Optimal Solar Power Management System for a Smart Greenhouse Arrangement</b><span class="m">Published · Application No. 202331015513</span></li>
+      <li><span class="ic">🐦</span><b>A Sustainable Bird-Repelling Device for the Agriculture Sector with Advanced Decision-Making Mechanism</b><span class="m">Published · Application No. 202331015511</span></li>
+      <li><span class="ic">⚙️</span><b>Priority-Based Solar Power Management Controller for Sustainable Greenhouse Farming</b><span class="m">Published · Application No. 202431087402</span></li>
     </ul>
 
-    <h3>Recognition &amp; talks</h3>
-    <ul class="mini-badges">
-      <li>🏆 <b>Best Paper Award</b> — IEEE ICIDeA 2022</li>
-      <li>🏅 <b>Best Poster</b> — Annual Research Summit, KIIT 2025</li>
-      <li>🎤 Invited Speaker — AAMREET 2026, NIT Rourkela</li>
-      <li>🌐 Academia speaker — G-20 3rd Education Group Meeting Workshop</li>
-      <li>🧑‍⚖️ Reviewer — IEEE journals &amp; conferences</li>
-      <li>📜 NPTEL Data Science (IIT Madras) · MathWorks RL certification · IEEE Member</li>
-    </ul>
+    <div class="shead"><h3>Research interests</h3></div>
+    <p class="note" style="margin:0 0 14px">AI-driven IoT systems for intelligent energy management, predictive modelling, digital twins, and demand-side optimization — applied across smart grids, smart agriculture, and Industry 4.0 ecosystems.</p>
+  </div>
+</section>
+
+<!-- ============ PUBLICATIONS ============ -->
+<section id="publications" class="tabpanel" role="tabpanel">
+  <div class="wrap">
+    <h2>Publications</h2>
+    <p class="sub2">12 Scopus-indexed papers including 4 SCI journals · 97 citations · h-index 5 · i10-index 3.</p>
+
+    <div class="shead"><h3>Journal papers</h3><span class="count">5 papers</span><span class="hint">4 SCI-indexed</span></div>
+    <ol class="publist">
+      <li>
+        <span class="t">Simplified Prediction-Based AI-IoT Model for Energy Management Scheme in Standalone PV Powered Greenhouse</span>
+        <span class="a">S. R. Biswal, T. R. Choudhury, S. B. Santra, B. Panda, S. Mishra, S. Padmanaban</span>
+        <span class="v">IEEE Journal of Emerging and Selected Topics in Industrial Electronics, vol. 6, no. 1, pp. 224–237, 2025 · doi:10.1109/JESTIE.2024.3425670</span>
+        <span class="tagrow"><span class="tg tg-first">First author</span><span class="tg tg-sci">SCI · IF 4.0</span></span>
+      </li>
+      <li>
+        <span class="t">An Improved IoT Based Hybrid Predictive Load Forecasting Model for a Greenhouse Integrated with Demand Side Management</span>
+        <span class="a">S. R. Biswal, T. R. Choudhury, B. Panda, S. Mishra</span>
+        <span class="v">IEEE Access, vol. 13, pp. 108446–108465, 2025 · doi:10.1109/ACCESS.2025.3579435</span>
+        <span class="tagrow"><span class="tg tg-first">First author</span><span class="tg tg-sci">SCI · IF 3.6</span></span>
+      </li>
+      <li>
+        <span class="t">AI-Enabled Energy Management for Sustainable Smart Greenhouses: An Integrated Review</span>
+        <span class="a">S. R. Biswal, T. R. Choudhury, B. Panda, S. Mishra</span>
+        <span class="v">IEEE Access, vol. 14, pp. 5482–5509, 2026 · doi:10.1109/ACCESS.2026.3651685</span>
+        <span class="tagrow"><span class="tg tg-first">First author</span><span class="tg tg-sci">SCI · IF 3.6</span></span>
+      </li>
+      <li>
+        <span class="t">Review of Active Power Control Techniques Considering the Impact of MPPT and FPPT During High PV Penetration</span>
+        <span class="a">G. C. Mahato, S. R. Biswal, T. R. Choudhury, B. Nayak, S. B. Santra</span>
+        <span class="v">Solar Energy, vol. 251, pp. 404–419, 2023 · doi:10.1016/j.solener.2023.01.035</span>
+        <span class="tagrow"><span class="tg tg-sci">SCI · IF 6.6</span></span>
+      </li>
+      <li>
+        <span class="t">Enhanced Real-Time Electricity Consumption Forecasting Using a Hybrid Deep Learning Model for Greenhouse</span>
+        <span class="a">S. R. Biswal et al.</span>
+        <span class="v">Franklin Open, 100737, 2026</span>
+        <span class="tagrow"><span class="tg tg-first">First author</span><span class="tg tg-sco">Scopus Q2</span></span>
+      </li>
+    </ol>
+
+    <div class="shead"><h3>Conference papers</h3><span class="count">7 papers</span><span class="hint">All IEEE</span></div>
+    <ol class="publist">
+      <li>
+        <span class="t">A Physics-Informed Digital Twin Framework for Demand Side Optimization in Smart Greenhouses</span>
+        <span class="a">S. R. Biswal et al.</span>
+        <span class="v">IEEE North-East India International Energy Conversion Conference and Exhibition (NE-IECCE), NIT Meghalaya, India, 2026</span>
+        <span class="tagrow"><span class="tg tg-first">First author</span></span>
+      </li>
+      <li>
+        <span class="t">TA-LSTM and IoT Based Energy Management for PV-Powered Greenhouses</span>
+        <span class="a">S. R. Biswal et al.</span>
+        <span class="v">4th IEEE Industrial Electronics Society Annual On-Line Conference (ONCON), Kharagpur, India, 2025, pp. 1–6</span>
+        <span class="tagrow"><span class="tg tg-first">First author</span><span class="tg tg-awd">Oral presentation</span></span>
+      </li>
+      <li>
+        <span class="t">Optimal Battery Utilization Based on Weather Forecasting Data Leading to DSI</span>
+        <span class="a">S. R. Biswal et al.</span>
+        <span class="v">1st IEEE International Conference on Industrial Electronics: Developments &amp; Applications (ICIDeA), Bhubaneswar, India, 2022, pp. 192–197</span>
+        <span class="tagrow"><span class="tg tg-first">First author</span><span class="tg tg-awd">🏆 Best Paper Award</span></span>
+      </li>
+      <li>
+        <span class="t">Demand Side Integration Concept Development through a Smart Meter using LabVIEW</span>
+        <span class="a">S. R. Biswal et al.</span>
+        <span class="v">IEEE International Women in Engineering Conference on Electrical and Computer Engineering (WIECON-ECE), Dhaka, Bangladesh, 2021, pp. 149–153</span>
+        <span class="tagrow"><span class="tg tg-first">First author</span></span>
+      </li>
+      <li>
+        <span class="t">Smart Meter: Impact and Usefulness on Smart Grids</span>
+        <span class="a">S. R. Biswal et al.</span>
+        <span class="v">2nd IEEE International Conference on Applied Electromagnetics, Signal Processing &amp; Communication (AESPC), Bhubaneswar, India, 2021, pp. 1–6</span>
+        <span class="tagrow"><span class="tg tg-first">First author</span><span class="tg tg-awd">Oral presentation</span></span>
+      </li>
+      <li>
+        <span class="t">Sensorless FPPT Tracking Mechanism Based on Forecasting Data</span>
+        <span class="a">G. C. Mahato, T. R. Choudhury, B. Nayak, S. R. Biswal, R. Dash</span>
+        <span class="v">1st IEEE International Conference on Industrial Electronics: Developments &amp; Applications (ICIDeA), Bhubaneswar, India, 2022, pp. 187–191</span>
+      </li>
+      <li>
+        <span class="t">A Novel Approach to Implement FPPT Considering Load Side Coordination Control</span>
+        <span class="a">G. C. Mahato, T. R. Choudhury, B. Nayak, S. R. Biswal</span>
+        <span class="v">IEEE International Conference on Power Electronics, Smart Grid and Renewable Energy (PESGRE), Trivandrum, India, 2022, pp. 1–6</span>
+      </li>
+    </ol>
+
+    <div class="shead"><h3>Book chapters</h3><span class="count">2 chapters</span></div>
+    <ol class="publist">
+      <li>
+        <span class="t">A Reliable PV System Implementation Incorporating FPPT through Forecasted Load Demand using Neural Network</span>
+        <span class="a">G. C. Mahato, T. R. Choudhury, S. R. Biswal, B. Nayak</span>
+        <span class="v">Advanced Analytics for Reliability and Resilience of Energy Systems, Elsevier, 2026, pp. 109–128</span>
+      </li>
+      <li>
+        <span class="t">Novel Technologies on Preservation of Fruits and Vegetables</span>
+        <span class="a">S. Mishra, S. R. Biswal, D. K. Dash</span>
+        <span class="v">Advances in Agriculture Sciences, Volume 5, AkiNik Publications, pp. 17–52</span>
+      </li>
+    </ol>
+
+    <div class="shead"><h3>Popular articles &amp; abstracts</h3><span class="count">4 articles</span><span class="hint">Science outreach</span></div>
+    <ol class="publist">
+      <li>
+        <span class="t">Smart Farming: Internet of Things (IoT)-based Sustainable Agriculture</span>
+        <span class="a">S. R. Biswal</span>
+        <span class="v">SOA Agri-confluence 2024, pp. 109–110</span>
+      </li>
+      <li>
+        <span class="t">AI for Food Justice: Bridging the Gap Between Agriculture and the Right to Food</span>
+        <span class="a">S. R. Biswal et al.</span>
+        <span class="v">National Symposium on Artificial Intelligence and the Right to Food, World Food Day 2024, pp. 88–94</span>
+      </li>
+      <li>
+        <span class="t">Sensor Technologies for Climate-Smart Fruit Crop Management: An Odisha Perspective</span>
+        <span class="a">S. Mishra, S. R. Biswal, K. Jaiswal, B. C. Biswal</span>
+        <span class="v">Odisha Climate Change Conclave 2024, pp. 48–50</span>
+      </li>
+      <li>
+        <span class="t">Integrating AI-IoT with LED-Based Hydroponics System for Resilient Cultivation of Strawberry, Spinach and Lettuce</span>
+        <span class="a">S. Mishra, S. R. Biswal et al.</span>
+        <span class="v">International Conference on Building Smallholder Climate Resilience for Achieving Sustainable Food Systems, OUAT Bhubaneswar, 2024, pp. 354–355</span>
+      </li>
+    </ol>
   </div>
 </section>
 
 <!-- ============ SKILLS ============ -->
 <section id="skills" class="tabpanel" role="tabpanel">
   <div class="wrap">
-    <h2>Skills</h2>
-    <div class="trace"></div>
+    <h2>Skills &amp; teaching</h2>
     <p class="sub2">From power converters to deep learning pipelines — the full stack of an AI-IoT energy engineer.</p>
+
+    <div class="shead"><h3>Electrical &amp; power systems</h3></div>
+    <div class="focus-chips">
+      <span class="chip">Power Electronics</span><span class="chip">Smart Grids</span><span class="chip">Demand-Side Management</span><span class="chip">PV Systems</span><span class="chip">MPPT &amp; FPPT</span><span class="chip">Converter Design</span><span class="chip">Energy Management Systems</span>
+    </div>
+
+    <div class="shead"><h3>IoT &amp; embedded systems</h3></div>
     <div class="skill-grid">
-      <div class="skill"><span class="ico">⚡</span>
-        <h4>Electrical &amp; Power Systems</h4>
+      <div class="skill"><span class="ico">🔌</span>
+        <h4>Hardware platforms</h4>
         <div class="focus-chips">
-          <span class="chip">Power Electronics</span><span class="chip">Smart Grids &amp; DSM</span><span class="chip">PV · MPPT · FPPT</span><span class="chip">Converter Design</span><span class="chip">Energy Management</span>
+          <span class="chip">Arduino</span><span class="chip">Raspberry Pi</span><span class="chip">ESP32</span><span class="chip">STM32</span>
         </div>
       </div>
       <div class="skill"><span class="ico">📡</span>
-        <h4>IoT &amp; Embedded Systems</h4>
+        <h4>Communication protocols</h4>
         <div class="focus-chips">
-          <span class="chip">Arduino</span><span class="chip">Raspberry Pi</span><span class="chip">ESP32</span><span class="chip">STM32</span><span class="chip">LoRa</span><span class="chip">Zigbee</span><span class="chip">MQTT</span><span class="chip">Wi-Fi · TCP/IP</span>
-        </div>
-      </div>
-      <div class="skill"><span class="ico">🧠</span>
-        <h4>AI &amp; Machine Learning</h4>
-        <div class="focus-chips">
-          <span class="chip">Python</span><span class="chip">TensorFlow</span><span class="chip">Scikit-learn</span><span class="chip">LSTM &amp; hybrid models</span><span class="chip">Load Forecasting</span><span class="chip">Digital Twins</span>
-        </div>
-      </div>
-      <div class="skill"><span class="ico">🛠️</span>
-        <h4>Tools &amp; Software</h4>
-        <div class="focus-chips">
-          <span class="chip">MATLAB</span><span class="chip">LabVIEW</span><span class="chip">ThingSpeak</span>
+          <span class="chip">LoRa</span><span class="chip">Zigbee</span><span class="chip">Wi-Fi</span><span class="chip">MQTT</span><span class="chip">TCP/IP</span>
         </div>
       </div>
     </div>
 
-    <h3>Teaching interests</h3>
+    <div class="shead"><h3>AI &amp; machine learning</h3></div>
+    <div class="skill-grid">
+      <div class="skill"><span class="ico">🧠</span>
+        <h4>Frameworks &amp; languages</h4>
+        <div class="focus-chips">
+          <span class="chip">Python</span><span class="chip">TensorFlow</span><span class="chip">Scikit-learn</span>
+        </div>
+      </div>
+      <div class="skill"><span class="ico">📈</span>
+        <h4>Methods</h4>
+        <div class="focus-chips">
+          <span class="chip">Deep Learning</span><span class="chip">LSTM &amp; hybrid models</span><span class="chip">Load Forecasting</span><span class="chip">Digital Twins</span><span class="chip">Reinforcement Learning</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="shead"><h3>Tools &amp; software</h3></div>
+    <div class="focus-chips">
+      <span class="chip">MATLAB</span><span class="chip">LabVIEW</span><span class="chip">ThingSpeak</span><span class="chip">Arduino IDE</span>
+    </div>
+
+    <div class="shead"><h3>Teaching interests</h3><span class="count">4+ years</span></div>
     <div class="focus-chips">
       <span class="chip">Power Electronics</span><span class="chip">Internet of Things</span><span class="chip">Machine Learning &amp; Deep Learning</span><span class="chip">Python</span>
     </div>
+
+    <div class="shead"><h3>Courses taught</h3></div>
+    <ul class="items two">
+      <li><b>Internet of Things (IoT)</b><span class="m">SIT College of Engineering, Kolhapur</span></li>
+      <li><b>Artificial Intelligence &amp; Machine Learning</b><span class="m">SIT College of Engineering, Kolhapur</span></li>
+      <li><b>Power Electronics</b><span class="m">OIET Dhenkanal</span></li>
+      <li><b>Network Theory</b><span class="m">OIET Dhenkanal · KIIT laboratories</span></li>
+      <li><b>Measurement</b><span class="m">OIET Dhenkanal · IGIT Sarang · KIIT laboratories</span></li>
+      <li><b>Basic Electrical &amp; Electronics</b><span class="m">IGIT Sarang · KIIT laboratories</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ RECOGNITION ============ -->
+<section id="recognition" class="tabpanel" role="tabpanel">
+  <div class="wrap">
+    <h2>Recognition &amp; service</h2>
+    <p class="sub2">Awards, invited talks, academic service, professional memberships, and continuing education.</p>
+
+    <div class="shead"><h3>Awards &amp; achievements</h3><span class="count">8 awards</span></div>
+    <ul class="items two">
+      <li><span class="ic">🏆</span><b>Best Paper Award — IEEE ICIDeA 2022</b><span class="m">"Optimal Battery Utilization Based on Weather Forecasting Data Leading to DSI" · IEEE Kolkata Section IES Chapter &amp; IEEE Bhubaneswar Subsection, Oct 2022</span></li>
+      <li><span class="ic">🏅</span><b>Best Poster Presentation — Annual Research Summit</b><span class="m">KIIT, Bhubaneswar · 7–8 March 2025</span></li>
+      <li><span class="ic">🎖️</span><b>Best Volunteer Award — IEEE STPEC 2023</b><span class="m">3rd International Conference on Smart Technologies for Power, Energy and Control, KIIT DU · 10–13 Dec 2023</span></li>
+      <li><span class="ic">🎖️</span><b>Best Volunteer Award — IEEE ICIDeA 2022</b><span class="m">1st IEEE International Conference on Industrial Electronics: Developments &amp; Applications · Oct 2022</span></li>
+      <li><span class="ic">🎓</span><b>AICTE PG Scholarship</b><span class="m">Awarded through M.Tech · 2015–2017</span></li>
+      <li><span class="ic">📐</span><b>GATE 2015 Qualified</b><span class="m">Graduate Aptitude Test in Engineering · score 379</span></li>
+      <li><span class="ic">🥉</span><b>3rd Prize — World of Innovation</b><span class="m">GIET, 2014</span></li>
+      <li><span class="ic">🥈</span><b>2nd Prize — Model Presentation</b><span class="m">"Solar Wind Hybrid System for Rural Electrification" · GIET, 2014</span></li>
+    </ul>
+
+    <div class="shead"><h3>Invited talks</h3><span class="count">2 talks</span></div>
+    <ul class="items">
+      <li><span class="ic">🎤</span><b>Invited Speaker — AAMREET 2026, NIT Rourkela</b><span class="m">"AI-Based Demand Side Management for PV Integrated Energy Systems" · Technical Session, 10 March 2026</span></li>
+      <li><span class="ic">🌐</span><b>Speaker — G-20 3rd Education Group Meeting Workshop</b><span class="m">Academia representative</span></li>
+    </ul>
+
+    <div class="shead"><h3>Academic roles &amp; service</h3><span class="count">6 roles</span></div>
+    <ul class="items two">
+      <li><span class="ic">🎯</span><b>Training &amp; Placement Coordinator</b><span class="m">Leading departmental training programmes and industry collaboration · SIT Kolhapur</span></li>
+      <li><span class="ic">🔬</span><b>R&amp;D Coordinator</b><span class="m">Coordinating departmental research and fostering student innovation · SIT Kolhapur</span></li>
+      <li><span class="ic">✅</span><b>NBA Accreditation Coordinator (Criteria 6)</b><span class="m">Governance, institutional support and compliance</span></li>
+      <li><span class="ic">🧑‍⚖️</span><b>Reviewer — IEEE journals &amp; conferences</b><span class="m">Peer review for IEEE publications</span></li>
+      <li><span class="ic">🗂️</span><b>Organizing committee — IEEE STPEC 2023 &amp; ICIDeA 2022</b><span class="m">Technical session management and delegate coordination</span></li>
+      <li><span class="ic">🌾</span><b>Developer, editor &amp; author — Agriculture2u.com</b><span class="m">Translating AI-IoT research into practical guidance for the farming community</span></li>
+    </ul>
+
+    <div class="shead"><h3>Professional memberships</h3><span class="count">2 bodies</span></div>
+    <ul class="items two">
+      <li><span class="ic">🏛️</span><b>IEEE Member</b><span class="m">Membership ID 97732350</span></li>
+      <li><span class="ic">🏛️</span><b>International Society for Research and Development</b><span class="m">Membership ID SM3140905184</span></li>
+    </ul>
+
+    <div class="shead"><h3>Certifications &amp; training programmes</h3><span class="count">7 programmes</span></div>
+    <ul class="items two">
+      <li><span class="ic">📜</span><b>Industrial Training in Artificial Intelligence &amp; Machine Learning</b><span class="m">SPKMAK Technology Pvt. Ltd. · 27 Jan – 3 Feb 2026 (7 days)</span></li>
+      <li><span class="ic">📜</span><b>Reinforcement Learning</b><span class="m">MathWorks online certification</span></li>
+      <li><span class="ic">📜</span><b>Data Science for Engineers</b><span class="m">NPTEL, IIT Madras · July–September 2024 (8 weeks)</span></li>
+      <li><span class="ic">📜</span><b>Industrial Internship: IoT with Machine Learning</b><span class="m">IEEE SB Chapter NITK &amp; Pantech E-Learning · Nov–Dec 2021</span></li>
+      <li><span class="ic">📜</span><b>Summer Training: IoT and Embedded PLC</b><span class="m">School of Electrical Engineering, KIIT DU · June 2021</span></li>
+      <li><span class="ic">📜</span><b>ATAL FDP: Industrial IoT using LabVIEW</b><span class="m">KLE Dr. M. S. Sheshgiri College of Engineering, Belagavi · 3–7 Jan 2022</span></li>
+      <li><span class="ic">📜</span><b>ATAL FDP: Power Electronics in Smart Grids &amp; Electric Vehicles</b><span class="m">NIT Andhra Pradesh · 25–29 June 2021</span></li>
+    </ul>
+
+    <div class="shead"><h3>Workshops, FDPs &amp; conferences attended</h3><span class="count">13 events</span></div>
+    <ul class="items two">
+      <li><b>Short Term Course — AI &amp; ML in Renewable Energy and EV Technologies</b><span class="m">AAMREET 2026, NIT Rourkela · 5 days</span></li>
+      <li><b>Oral presentation — IEEE ONCON 2025</b><span class="m">"TA-LSTM and IoT Based Energy Management for PV-Powered Greenhouses" · Kharagpur, 13–15 Dec 2025</span></li>
+      <li><b>GIAN Course — PV-Fuel Cell Microgrid: A Sustainable Energy Solution</b><span class="m">NIT Rourkela · 26–30 Dec 2024</span></li>
+      <li><b>FDP — Deregulated Electricity Systems, Industrial Automation &amp; Cyber Security</b><span class="m">KIIT DU with IEEE IAS · 9–13 April 2024</span></li>
+      <li><b>Short Term Course — Machine Learning in Sustainable Technology (AMLST-2024)</b><span class="m">NIT Rourkela · 24–28 Jan 2024</span></li>
+      <li><b>Oral presentation — Connected Farming in the 21st Century</b><span class="m">International Conference on New Generation Horticulture, OUAT Bhubaneswar · 20–21 Jan 2023</span></li>
+      <li><b>Oral presentation — IEEE ICIDeA 2022</b><span class="m">"Optimal Battery Utilization Based on Weather Forecasting Data" · 15–16 Oct 2022</span></li>
+      <li><b>National Workshop — Python Programming</b><span class="m">MSCB University · 20–26 June 2022</span></li>
+      <li><b>Workshop — Ambient Intelligence: AI, ML &amp; Biometrics in Cloud Environments</b><span class="m">IEEE PES &amp; IEEE Computer Society · 23 March 2022</span></li>
+      <li><b>Tutorial — Smart Meters for Emergency Grid Management</b><span class="m">IEEE PES &amp; IEEE Computer Society · 25 March 2022</span></li>
+      <li><b>Oral presentation — IEEE AESPC 2021</b><span class="m">"Smart Meter: Impact and Usefulness on Smart Grids" · KIIT DU, 26–28 Nov 2021</span></li>
+      <li><b>Hands-on training — IoT, MATLAB and ThingSpeak</b><span class="m">SRM University, Andhra Pradesh · 10 Aug 2021</span></li>
+      <li><b>Short Term Course — Sustainable Power Systems</b><span class="m">NIT Tiruchirappalli with Hong Kong Polytechnic University · 7–11 June 2021</span></li>
+    </ul>
   </div>
 </section>
 
@@ -519,22 +774,30 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padd
 <section id="contact" class="tabpanel" role="tabpanel">
   <div class="wrap">
     <h2>Let's build something intelligent together</h2>
-    <div class="trace"></div>
     <p class="sub2">Open to research collaboration, project mentorship, invited talks, and consulting in AI-IoT energy systems.</p>
+
+    <div class="shead"><h3>Get in touch</h3></div>
     <div class="contact-grid">
       <div class="ccard"><div class="ico">📧</div><div class="lbl">Email</div><div class="val"><a href="mailto:mr.soumya5@gmail.com">mr.soumya5@gmail.com</a></div></div>
       <div class="ccard"><div class="ico">📱</div><div class="lbl">Phone</div><div class="val"><a href="tel:+918908980998">+91 89089 80998</a></div></div>
       <div class="ccard"><div class="ico">📍</div><div class="lbl">Location</div><div class="val">Kolhapur, Maharashtra ·<br>Bhubaneswar, Odisha, India</div></div>
     </div>
-    <h3>Profiles</h3>
+
+    <div class="shead"><h3>Academic profiles</h3></div>
     <div class="profiles">
-      <a class="btn ghost" href="mailto:mr.soumya5@gmail.com?subject=Google%20Scholar%20link%20request">Google Scholar</a>
-      <a class="btn ghost" href="mailto:mr.soumya5@gmail.com?subject=ORCID%20link%20request">ORCID</a>
-      <a class="btn ghost" href="mailto:mr.soumya5@gmail.com?subject=LinkedIn%20link%20request">LinkedIn</a>
-      <a class="btn ghost" href="mailto:mr.soumya5@gmail.com?subject=ResearchGate%20link%20request">ResearchGate</a>
-      <a class="btn ghost" href="mailto:mr.soumya5@gmail.com?subject=GitHub%20link%20request">GitHub</a>
+      <a class="btn ghost" href="https://scholar.google.com/citations?user=0sMGRkMAAAAJ&amp;hl=en" target="_blank" rel="noopener">🎓 Google Scholar</a>
+      <a class="btn ghost" href="https://orcid.org/0000-0003-1316-4912" target="_blank" rel="noopener">🆔 ORCID</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/mrsoumya/" target="_blank" rel="noopener">💼 LinkedIn</a>
+      <a class="btn ghost" href="https://www.researchgate.net/profile/Soumya-Biswal-4" target="_blank" rel="noopener">🔬 ResearchGate</a>
+      <a class="btn ghost" href="https://github.com/DrSrbiswal" target="_blank" rel="noopener">💻 GitHub</a>
     </div>
-    <p class="note" style="margin-top:14px">These five buttons are placeholders — share your profile URLs and they'll link directly.</p>
+
+    <div class="shead"><h3>References</h3><span class="count">3 referees</span></div>
+    <ul class="items two">
+      <li><b>Dr. Tanmoy Roy Choudhury</b><span class="m">Department of Electrical Engineering, NIT Rourkela, Odisha<br><a href="mailto:choudhuryt@nitrkl.ac.in">choudhuryt@nitrkl.ac.in</a></span></li>
+      <li><b>Dr. Subhendu Bikash Santra</b><span class="m">Department of Electrical Engineering, Shiv Nadar Institution of Eminence, Delhi-NCR<br><a href="mailto:subhendu.santra@snu.edu.in">subhendu.santra@snu.edu.in</a></span></li>
+      <li><b>Dr. Amlana Panda</b><span class="m">Assistant Registrar (R&amp;D), School of Mechanical Engineering, KIIT DU, Bhubaneswar<br><a href="mailto:amlana.pandafme@kiit.ac.in">amlana.pandafme@kiit.ac.in</a></span></li>
+    </ul>
   </div>
 </section>
 
@@ -693,3 +956,5 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padd
   }
 })();
 </script>
+</body>
+</html>
