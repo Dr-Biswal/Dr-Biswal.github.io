@@ -163,45 +163,76 @@ h1 {
 .legend .l-car::before { color: var(--green); }
 .legend .l-res::before { color: var(--cyan); }
 .legend .l-awd::before { color: var(--amber); }
-.timeline { position: relative; margin: 6px 0 10px; }
-.timeline::before {
-  content: ""; position: absolute; left: 74px; top: 8px; bottom: 8px; width: 2px;
-  background: linear-gradient(180deg, var(--cyan), rgba(43,197,232,0.15));
+.colheads {
+  display: grid; grid-template-columns: 1fr 92px 1fr; align-items: center;
+  margin: 26px 0 14px;
+}
+.colheads span {
+  font-family: "IBM Plex Mono", monospace; font-size: 11.5px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+}
+.colheads .ch-l { grid-column: 1; text-align: right; padding-right: 14px; }
+.colheads .ch-r { grid-column: 3; text-align: left; padding-left: 14px; }
+
+.tl { position: relative; margin: 4px 0 10px; }
+.tl::before {
+  content: ""; position: absolute; left: 50%; top: 4px; bottom: 4px;
+  width: 2px; margin-left: -1px;
+  background: linear-gradient(180deg, rgba(43,197,232,0.12), var(--cyan) 10%, var(--cyan) 90%, rgba(43,197,232,0.12));
   box-shadow: 0 0 12px rgba(43,197,232,0.5);
 }
-.tnode { position: relative; display: flex; gap: 26px; padding: 0 0 28px; }
-.tnode .year {
-  flex: 0 0 60px; text-align: right;
-  font-family: "Chakra Petch", sans-serif; font-weight: 700; font-size: 21px; color: var(--cyan);
-  padding-top: 8px; font-variant-numeric: tabular-nums;
+.trow {
+  display: grid; grid-template-columns: 1fr 92px 1fr;
+  align-items: start; margin-bottom: 26px;
 }
-.tnode::after {
-  content: ""; position: absolute; left: 68px; top: 16px;
-  width: 14px; height: 14px; border-radius: 50%;
-  background: var(--bg); border: 3px solid var(--cyan);
-  box-shadow: 0 0 12px rgba(43,197,232,0.8);
+.tyear {
+  grid-column: 2; justify-self: center; align-self: start;
+  font-family: "Chakra Petch", sans-serif; font-weight: 700; font-size: 16.5px;
+  color: var(--cyan); font-variant-numeric: tabular-nums;
+  background: var(--bg); border: 2px solid var(--cyan); border-radius: 999px;
+  padding: 4px 13px; position: relative; z-index: 2;
+  box-shadow: 0 0 16px rgba(43,197,232,0.45);
 }
-.tnode.big::after { background: var(--cyan); }
+.tside { display: flex; flex-direction: column; gap: 12px; }
+.tside.l { grid-column: 1; align-items: flex-end; padding-right: 14px; }
+.tside.r { grid-column: 3; align-items: flex-start; padding-left: 14px; }
 .tcard {
-  flex: 1; background: linear-gradient(180deg, var(--panel-2), var(--panel));
-  border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px 14px;
-  margin-left: 18px; transition: transform .15s, box-shadow .15s, border-color .15s;
+  position: relative; width: 100%; max-width: 430px;
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px 13px;
+  transition: transform .15s, box-shadow .15s;
 }
-.tcard:hover { transform: translateX(4px); border-color: rgba(43,197,232,0.55); box-shadow: 0 6px 24px rgba(43,197,232,0.12); }
-.tcard h4 { margin: 0 0 4px; font-family: "Chakra Petch", sans-serif; font-size: 16.5px; font-weight: 600; }
-.tcard .sub { color: var(--muted); font-size: 13.5px; margin: 0 0 10px; }
-.badges { display: flex; flex-wrap: wrap; gap: 7px; margin: 0; padding: 0; list-style: none; }
-.badges li { font-size: 12.5px; font-family: "IBM Plex Mono", monospace; border-radius: 999px; padding: 4px 11px; border: 1px solid; }
-.b-edu { color: var(--violet); border-color: rgba(167,139,250,0.45); background: rgba(167,139,250,0.09); }
-.b-car { color: var(--green); border-color: rgba(61,220,151,0.45); background: rgba(61,220,151,0.09); }
-.b-res { color: var(--cyan); border-color: rgba(43,197,232,0.45); background: rgba(43,197,232,0.09); }
-.b-awd { color: var(--amber); border-color: rgba(245,184,76,0.5); background: rgba(245,184,76,0.1); }
-@media (max-width: 620px) {
-  .timeline::before { left: 8px; }
-  .tnode { flex-direction: column; gap: 8px; padding-left: 34px; }
-  .tnode .year { text-align: left; flex: none; padding-top: 0; }
-  .tnode::after { left: 2px; }
-  .tcard { margin-left: 0; }
+.tcard.edu { --ac: var(--violet); }
+.tcard.car { --ac: var(--green); }
+.tcard.res { --ac: var(--cyan); }
+.tcard.awd { --ac: var(--amber); }
+.tside.l .tcard { border-right: 3px solid var(--ac, var(--line)); }
+.tside.r .tcard { border-left: 3px solid var(--ac, var(--line)); }
+.tcard::after {
+  content: ""; position: absolute; top: 21px; width: 14px; height: 2px;
+  background: var(--ac, var(--line)); opacity: 0.5;
+}
+.tside.l .tcard::after { right: -14px; }
+.tside.r .tcard::after { left: -14px; }
+.tside.l .tcard:hover { transform: translateX(-4px); }
+.tside.r .tcard:hover { transform: translateX(4px); }
+.tcard:hover { box-shadow: 0 6px 24px rgba(43,197,232,0.16); }
+.tcard .ty {
+  display: block; font-family: "IBM Plex Mono", monospace; font-size: 10.5px;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--ac, var(--muted));
+  margin-bottom: 5px;
+}
+.tcard h4 { margin: 0 0 4px; font-family: "Chakra Petch", sans-serif; font-size: 16px; font-weight: 600; }
+.tcard .sub { color: var(--muted); font-size: 13.5px; margin: 0; }
+@media (max-width: 880px) {
+  .tl::before { display: none; }
+  .colheads { display: none; }
+  .trow { grid-template-columns: 1fr; gap: 10px; margin-bottom: 32px; }
+  .tyear { grid-column: 1; justify-self: start; margin-bottom: 2px; }
+  .tside.l, .tside.r { grid-column: 1; align-items: stretch; padding: 0; }
+  .tcard { max-width: none; }
+  .tside.l .tcard { border-right: 1px solid var(--line); border-left: 3px solid var(--ac, var(--line)); }
+  .tcard::after { display: none; }
 }
 
 /* ===== PROJECT CARDS ===== */
@@ -294,17 +325,17 @@ svg.gh { width: 100%; height: auto; margin: 2px 0 4px; display: block; }
 footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padding: 22px 0 40px; color: var(--muted); font-size: 13px; text-align: center; }
 
 .tilt { transform-style: preserve-3d; will-change: transform; }
-.tabpanel.active .tnode { animation: rise .45s ease both; }
-.tabpanel.active .tnode:nth-child(1) { animation-delay: .04s; }
-.tabpanel.active .tnode:nth-child(2) { animation-delay: .1s; }
-.tabpanel.active .tnode:nth-child(3) { animation-delay: .16s; }
-.tabpanel.active .tnode:nth-child(4) { animation-delay: .22s; }
-.tabpanel.active .tnode:nth-child(5) { animation-delay: .28s; }
-.tabpanel.active .tnode:nth-child(6) { animation-delay: .34s; }
-.tabpanel.active .tnode:nth-child(7) { animation-delay: .4s; }
-.tabpanel.active .tnode:nth-child(8) { animation-delay: .46s; }
-.tabpanel.active .tnode:nth-child(9) { animation-delay: .52s; }
-.tabpanel.active .tnode:nth-child(10) { animation-delay: .58s; }
+.tabpanel.active .trow { animation: rise .45s ease both; }
+.tabpanel.active .trow:nth-child(1) { animation-delay: .04s; }
+.tabpanel.active .trow:nth-child(2) { animation-delay: .1s; }
+.tabpanel.active .trow:nth-child(3) { animation-delay: .16s; }
+.tabpanel.active .trow:nth-child(4) { animation-delay: .22s; }
+.tabpanel.active .trow:nth-child(5) { animation-delay: .28s; }
+.tabpanel.active .trow:nth-child(6) { animation-delay: .34s; }
+.tabpanel.active .trow:nth-child(7) { animation-delay: .4s; }
+.tabpanel.active .trow:nth-child(8) { animation-delay: .46s; }
+.tabpanel.active .trow:nth-child(9) { animation-delay: .52s; }
+.tabpanel.active .trow:nth-child(10) { animation-delay: .58s; }
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
@@ -312,7 +343,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padd
   .tab, .tcard, .proj, .skill, .btn, .chip, .avatar { transition: none; }
   section.tabpanel.active { animation: none; }
   .caret, .avatar { animation: none; }
-  .tabpanel.active .tnode { animation: none; }
+  .tabpanel.active .trow { animation: none; }
 }
 </style>
 </head>
@@ -387,62 +418,204 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padd
 <section id="journey" class="tabpanel" role="tabpanel">
   <div class="wrap">
     <h2>The journey — 2014 → 2026</h2>
-    <p class="sub2">Twelve years from a B.Tech classroom in Odisha to AI-driven energy research and a professorship — year by year.</p>
+    <p class="sub2">Twelve years from a B.Tech classroom in Odisha to AI-driven energy research and a professorship — year by year. Full citations and details sit in the Publications and Recognition tabs.</p>
     <div class="legend" style="margin-top:22px">
-      <span class="l-edu">Education</span><span class="l-car">Career</span><span class="l-res">Research</span><span class="l-awd">Award / Honor</span>
+      <span class="l-edu">Education</span><span class="l-car">Position</span><span class="l-res">Research</span><span class="l-awd">Award / Honour</span>
+    </div>
+    <div class="colheads">
+      <span class="ch-l">← Degrees &amp; positions</span>
+      <span class="ch-r">Research &amp; recognition →</span>
     </div>
 
-    <div class="timeline">
-      <div class="tnode"><div class="year">2014</div><div class="tcard">
-        <h4>The spark: B.Tech in Electrical &amp; Electronics</h4>
-        <p class="sub">BPUT, Odisha · CGPA 7.2 — final-year project on a solar-wind hybrid system for rural electrification, which won two prizes at GIET</p>
-        <ul class="badges"><li class="b-edu">B.Tech EEE</li><li class="b-awd">2nd prize · Model presentation</li><li class="b-awd">3rd prize · World of Innovation</li></ul>
-      </div></div>
-      <div class="tnode"><div class="year">2015</div><div class="tcard">
-        <h4>GATE qualified → M.Tech in Power Electronics &amp; Drives</h4>
-        <p class="sub">IGIT Sarang · CGPA 8.2 · AICTE PG Scholarship · Teaching Assistant alongside</p>
-        <ul class="badges"><li class="b-awd">GATE 2015 · score 379</li><li class="b-awd">AICTE Scholarship</li><li class="b-edu">M.Tech 2017</li><li class="b-car">First teaching role</li></ul>
-      </div></div>
-      <div class="tnode"><div class="year">2017</div><div class="tcard">
-        <h4>Into the classroom full-time</h4>
-        <p class="sub">Lecturer, OIET Dhenkanal — Measurement, Network Theory, Power Electronics; guiding IoT &amp; smart-grid student projects</p>
-        <ul class="badges"><li class="b-car">Lecturer 2017–19</li></ul>
-      </div></div>
-      <div class="tnode big"><div class="year">2020</div><div class="tcard">
-        <h4>Ph.D. begins at KIIT — the smart greenhouse era</h4>
-        <p class="sub">ML-driven demand-side management for grid-connected smart greenhouses; TA running IoT labs &amp; workshops</p>
-        <ul class="badges"><li class="b-edu">Ph.D. started</li><li class="b-car">TA @ KIIT</li></ul>
-      </div></div>
-      <div class="tnode"><div class="year">2021</div><div class="tcard">
-        <h4>First IEEE conference papers</h4>
-        <p class="sub">Smart-meter research at IEEE WIECON-ECE (Dhaka) and IEEE AESPC (Bhubaneswar)</p>
-        <ul class="badges"><li class="b-res">2 IEEE papers</li></ul>
-      </div></div>
-      <div class="tnode big"><div class="year">2022</div><div class="tcard">
-        <h4>🏆 Best Paper Award — IEEE ICIDeA</h4>
-        <p class="sub">"Optimal Battery Utilization Based on Weather Forecasting Data" + two more IEEE conference papers (ICIDeA, PESGRE)</p>
-        <ul class="badges"><li class="b-awd">Best Paper Award</li><li class="b-awd">Best Volunteer · ICIDeA</li><li class="b-res">3 IEEE papers</li><li class="b-car">ICIDeA organizing committee</li></ul>
-      </div></div>
-      <div class="tnode"><div class="year">2023</div><div class="tcard">
-        <h4>Two patents published + a high-impact journal</h4>
-        <p class="sub">Solar power management &amp; bird-repelling patents · review in <em>Solar Energy</em> (IF 6.6) · IEEE STPEC organizing committee · talk on "Connected Farming in the 21st Century" at OUAT</p>
-        <ul class="badges"><li class="b-res">2 patents</li><li class="b-res">Solar Energy (IF 6.6)</li><li class="b-awd">Best Volunteer · STPEC</li></ul>
-      </div></div>
-      <div class="tnode"><div class="year">2024</div><div class="tcard">
-        <h4>Third patent + upskilling in data science</h4>
-        <p class="sub">Priority-based solar power controller patent · NPTEL "Data Science for Engineers" (IIT Madras) · GIAN PV-Fuel Cell Microgrid course (NIT Rourkela) · three popular articles taking AI-IoT farming to the wider agricultural community</p>
-        <ul class="badges"><li class="b-res">3rd patent</li><li class="b-edu">NPTEL · GIAN</li><li class="b-car">Science outreach</li></ul>
-      </div></div>
-      <div class="tnode big"><div class="year">2025</div><div class="tcard">
-        <h4>The breakthrough year: Dr. Biswal</h4>
-        <p class="sub">Ph.D. awarded (CGPA 9.0) · Assistant Professor, AI &amp; DS, SIT Kolhapur · first-author papers in IEEE JESTIE (IF 4.0) &amp; IEEE Access (IF 3.6) · funded greenhouse project completed: −42.96% energy cost, −63.27% storage</p>
-        <ul class="badges"><li class="b-edu">Ph.D. ✓</li><li class="b-car">Assistant Professor</li><li class="b-res">IEEE JESTIE + Access</li><li class="b-awd">Best Poster, KIIT</li></ul>
-      </div></div>
-      <div class="tnode"><div class="year">2026</div><div class="tcard">
-        <h4>Widening the circle</h4>
-        <p class="sub">Executive M.Tech in AI &amp; DS begins (IIT Patna) · IEEE Access integrated review · digital-twin paper at IEEE NE-IECCE · invited speaker, AAMREET (NIT Rourkela) · G-20 Education Group workshop speaker · industrial training in AI &amp; ML</p>
-        <ul class="badges"><li class="b-edu">IIT Patna</li><li class="b-res">Digital twins</li><li class="b-awd">Invited talks</li><li class="b-edu">AI/ML training</li></ul>
-      </div></div>
+    <div class="tl">
+      <div class="trow">
+        <div class="tside l">
+          <div class="tcard edu"><span class="ty">Education</span>
+            <h4>B.Tech in Electrical &amp; Electronics Engineering</h4>
+            <p class="sub">BPUT, Odisha · CGPA 7.2 — final-year project on a solar-wind hybrid system for rural electrification</p>
+          </div>
+        </div>
+        <div class="tyear">2014</div>
+        <div class="tside r">
+          <div class="tcard awd"><span class="ty">Award</span>
+            <h4>🥉 Two prizes at GIET</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="trow">
+        <div class="tside l">
+          <div class="tcard edu"><span class="ty">Education</span>
+            <h4>M.Tech in Power Electronics &amp; Drives</h4>
+            <p class="sub">IGIT Sarang, Odisha · CGPA 8.2 · 2015–2017</p>
+          </div>
+          <div class="tcard car"><span class="ty">Position</span>
+            <h4>Teaching Assistant — IGIT Sarang</h4>
+            <p class="sub">Laboratory sessions in Basic Electrical &amp; Electronics and Measurement · 2015–2017</p>
+          </div>
+        </div>
+        <div class="tyear">2015</div>
+        <div class="tside r">
+          <div class="tcard awd"><span class="ty">Award</span>
+            <h4>📐 GATE 2015 qualified · score 379</h4>
+          </div>
+          <div class="tcard awd"><span class="ty">Award</span>
+            <h4>🎓 AICTE PG Scholarship</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="trow">
+        <div class="tside l">
+          <div class="tcard edu"><span class="ty">Education</span>
+            <h4>M.Tech awarded</h4>
+            <p class="sub">Thesis: design and analysis of a high-efficiency interleaved boost converter with soft-switching capability for renewable energy applications</p>
+          </div>
+          <div class="tcard car"><span class="ty">Position</span>
+            <h4>Lecturer — OIET Dhenkanal</h4>
+            <p class="sub">Taught Measurement, Network Theory and Power Electronics; guided student projects on IoT and smart grids · 2017–2019</p>
+          </div>
+        </div>
+        <div class="tyear">2017</div>
+        <div class="tside r"></div>
+      </div>
+
+      <div class="trow">
+        <div class="tside l">
+          <div class="tcard edu"><span class="ty">Education</span>
+            <h4>Ph.D. begins — KIIT Deemed to be University</h4>
+            <p class="sub">Machine-learning-driven demand-side management for grid-connected smart greenhouses</p>
+          </div>
+          <div class="tcard car"><span class="ty">Position</span>
+            <h4>Teaching Assistant — KIIT DU</h4>
+            <p class="sub">Laboratories in IoT, Measurement, Network Theory and Basic Electrical &amp; Electronics; organised hands-on IoT workshops · 2020–2025</p>
+          </div>
+        </div>
+        <div class="tyear">2020</div>
+        <div class="tside r"></div>
+      </div>
+
+      <div class="trow">
+        <div class="tside l"></div>
+        <div class="tyear">2021</div>
+        <div class="tside r">
+          <div class="tcard res"><span class="ty">Research</span>
+            <h4>First IEEE conference papers — WIECON-ECE &amp; 2nd AESPC</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="trow">
+        <div class="tside l"></div>
+        <div class="tyear">2022</div>
+        <div class="tside r">
+          <div class="tcard awd"><span class="ty">Award</span>
+            <h4>🏆 Best Paper Award — 1st IEEE ICIDeA</h4>
+          </div>
+          <div class="tcard awd"><span class="ty">Award</span>
+            <h4>🎖️ Best Volunteer Award — 1st IEEE ICIDeA</h4>
+          </div>
+          <div class="tcard res"><span class="ty">Research</span>
+            <h4>Two co-authored IEEE papers — ICIDeA &amp; PESGRE</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="trow">
+        <div class="tside l"></div>
+        <div class="tyear">2023</div>
+        <div class="tside r">
+          <div class="tcard res"><span class="ty">Research</span>
+            <h4>Two patents published</h4>
+          </div>
+          <div class="tcard res"><span class="ty">Research</span>
+            <h4><em>Solar Energy</em> review — IF 6.6</h4>
+          </div>
+          <div class="tcard awd"><span class="ty">Award</span>
+            <h4>🎖️ Best Volunteer Award — 3rd IEEE STPEC 2023</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="trow">
+        <div class="tside l">
+          <div class="tcard edu"><span class="ty">Training</span>
+            <h4>NPTEL &amp; GIAN coursework</h4>
+            <p class="sub">Data Science for Engineers, IIT Madras (8 weeks) · GIAN course on PV-Fuel Cell Microgrids, NIT Rourkela</p>
+          </div>
+        </div>
+        <div class="tyear">2024</div>
+        <div class="tside r">
+          <div class="tcard res"><span class="ty">Research</span>
+            <h4>Third patent published</h4>
+          </div>
+          <div class="tcard res"><span class="ty">Outreach</span>
+            <h4>Three popular articles on smart farming</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="trow">
+        <div class="tside l">
+          <div class="tcard edu"><span class="ty">Education</span>
+            <h4>🎓 Ph.D. awarded — Dr. Biswal</h4>
+            <p class="sub">KIIT DU (NIRF 17) · CGPA 9.0 — "Analysis and Implementation of ML-Driven DSM for Optimized Energy Consumption in a Grid-Connected Smart Greenhouse"</p>
+          </div>
+          <div class="tcard car"><span class="ty">Position</span>
+            <h4>Assistant Professor — SIT College of Engineering</h4>
+            <p class="sub">Dept. of AI &amp; Data Science, Kolhapur — teaching IoT, AI and ML; Training &amp; Placement, R&amp;D and NBA Criteria 6 Coordinator · June 2025 – present</p>
+          </div>
+        </div>
+        <div class="tyear">2025</div>
+        <div class="tside r">
+          <div class="tcard res"><span class="ty">1st journal · first author</span>
+            <h4>IEEE JESTIE — IF 4.0</h4>
+          </div>
+          <div class="tcard res"><span class="ty">2nd journal · first author</span>
+            <h4>IEEE Access — IF 3.6</h4>
+          </div>
+          <div class="tcard res"><span class="ty">Project completed</span>
+            <h4>Funded greenhouse project delivered</h4>
+          </div>
+          <div class="tcard res"><span class="ty">Conference</span>
+            <h4>4th IEEE ONCON, Kharagpur</h4>
+          </div>
+          <div class="tcard awd"><span class="ty">Award</span>
+            <h4>🏅 Best Poster — Annual Research Summit, KIIT</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="trow">
+        <div class="tside l">
+          <div class="tcard edu"><span class="ty">Education</span>
+            <h4>Executive M.Tech in AI &amp; Data Science</h4>
+            <p class="sub">IIT Patna · part-time, 2026–2028</p>
+          </div>
+          <div class="tcard edu"><span class="ty">Training</span>
+            <h4>Industrial training in AI &amp; Machine Learning</h4>
+            <p class="sub">SPKMAK Technology Pvt. Ltd. · 27 January – 3 February 2026</p>
+          </div>
+        </div>
+        <div class="tyear">2026</div>
+        <div class="tside r">
+          <div class="tcard res"><span class="ty">3rd journal · first author</span>
+            <h4>IEEE Access integrated review — IF 3.6</h4>
+          </div>
+          <div class="tcard res"><span class="ty">4th journal · first author</span>
+            <h4>Franklin Open — Scopus Q2</h4>
+          </div>
+          <div class="tcard res"><span class="ty">Conference</span>
+            <h4>IEEE NE-IECCE, NIT Meghalaya — digital twin framework</h4>
+          </div>
+          <div class="tcard awd"><span class="ty">Invited talk</span>
+            <h4>🎤 Invited Speaker — AAMREET 2026, NIT Rourkela</h4>
+          </div>
+          <div class="tcard awd"><span class="ty">Invited talk</span>
+            <h4>🌐 G-20 3rd Education Group Meeting Workshop</h4>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -791,7 +964,6 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padd
       <a class="btn ghost" href="https://www.researchgate.net/profile/Soumya-Biswal-4" target="_blank" rel="noopener">🔬 ResearchGate</a>
       <a class="btn ghost" href="https://github.com/DrSrbiswal" target="_blank" rel="noopener">💻 GitHub</a>
     </div>
-
   </div>
 </section>
 
